@@ -1,0 +1,572 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Music Life-生活需要音乐</title>
+<!-- <meta name="keywords" content="动漫音乐" /> -->
+<!-- <meta name="description" content="Music Life" /> -->
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/player.css" />
+<!-- <link rel="Shortcut Icon" href="images/favicon.ico" /> -->
+    <script src="./jquery.js"></script>
+    <script src="./mediaelement-and-player.min.js"></script>
+    <link rel="stylesheet" href="./mediaelementplayer.min.css" />
+<script type="text/javascript" src="js/modernizr.js"></script>
+    <script type="text/javascript" src="jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="jquery.color.js"></script>
+
+    <script>
+        $(function () {
+            //需求1:给每一个li设置鼠标移入事件:上面是文字的span更改定位的left值为-76(宽)以及颜色,下面的图标span更改颜色.
+            //需求2:给每一个li设置鼠标移出事件:还原
+
+            //延迟
+            //delay();
+
+            $('.toolbar>li').on('mouseenter', function () {
+                $(this).find('.text').stop(true,false).animate({
+                    left:-76,
+                    backgroundColor:'#db192a'
+                },500);
+
+
+                $(this).find('.icon').stop(true,false).animate({
+                    backgroundColor:'#db192a'
+                },500);
+
+            }).on('mouseleave', function () {
+                $(this).find('.text').stop(true,false).animate({
+                    left:0,
+                    backgroundColor:'#7a6e6e '
+                },200);
+                //
+                $(this).find('.icon').stop(true,false).animate({
+                    backgroundColor:'#7a6e6e '
+                },200);
+            });
+
+
+        });
+    </script>
+
+</head>
+<body>
+
+<ul class="toolbar">
+    <li><span class="text">MLife会员</span><span class="icon" style="background-position: -88px -175px;"></span></li>
+    <li><span class="text">音乐时刻</span><span class="icon" style="background-position: -50px  -100px;"></span></li>
+    <li><span class="text">音乐关注</span><span class="icon" style="background-position: -50px -50px;"></span></li>
+    <li><span class="text">音乐消息</span><span class="icon" style="background-position: -190px -150px;"></span></li>
+    <li class="last"><span class="text">音乐共享</span><span class="icon jm" style="background-position: -190px -100px;"></span></li>
+</ul>
+
+<!--头部 开始-->
+<div id="header">
+    <!--顶部bar 开始-->
+
+    <div id="headCont">
+        <audio id="audioPlayer"></audio>
+    	<!--二级导航-->
+        <nav class="sub_nav">
+            <div class="nav_list">
+                <ul>
+                    <li>
+                    	<a href="" class="smallogo">
+                        	<span class="mini_logo"></span>
+                        </a>
+                    </li>
+                    <li><a href="#header" id="sy10">首页</a></li>
+                    <li><a href="#om2" id="myid">动漫MV</a></li>
+                    <li><a href="#lr800" id="animate">音乐排行榜</a></li>
+                    <li><a href="#tj1" id="tj2" >推荐动漫</a></li>
+                    <li><a href="../Worldorwar.html">开场动画</a></li>
+                    <li><a href="../插件/登录模块/login.html" target="_blank" class="zyl">登录/注册</a></li>
+                </ul>
+                <div class="srarch">
+                    <input type="text" placeholder="搜索音乐.MV">
+                    <div class="searchbox">
+                       <a href=""> <img src="../主页面/images/搜索 (1).png" width="35px" height="35px" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+  	<!--头部导航  结束-->
+</div>
+
+<!-- 音乐馆 模块 开始  default-->
+<section class="section_cont">
+    <!--轮播图 开始 -->
+    <div class="main_banner">
+        <div class="main_banner_bg"></div>
+        <div class="main_banner_wrap">
+            <div class="main_banner_box" id="m_box">
+                <a href="javascript:void(0)" class="banner_btn js_pre">
+                    <span class="banner_btn_arrow"><i></i></span>
+                </a>
+                <a href="javascript:void(0)" class="banner_btn btn_next js_next">
+                    <span class="banner_btn_arrow"><i></i></span>
+                </a>
+                <ul>
+                    <li id="imgCard0">
+                        <a href="../插件/歌词同步显示/天行九歌1.html" target="_blank"><span style="opacity:0;"></span></a>
+                        <img src="./images/z1.jpg" alt="">
+                        <p style="bottom:0">皑皑白雪衣，灼灼焰灵姬。风流始韩非，高冷绝卫庄...</p>
+                    </li> 
+                    <li id="imgCard1">
+                        <a href="../插件/歌词同步显示/不良人1.html" target="_blank"><span style="opacity:0.4;"></span></a>
+                        <img src="./images/z2.jpg" alt="">
+                        <p>一悲一喜一枉然，一草一木一红颜</p>
+                    </li> 
+                    <li id="imgCard2">
+                        <a href="../插件/歌词同步显示/谁主沉浮1.html" target="_blank"><span style="opacity:0.4;" ></span></a>
+                        <img src="./images/z3.jpg" alt="">
+                        <p>若今生逆旅天涯，四海为家。便许你来世雪舞霓裳...</p>
+                    </li> 
+                    <li id="imgCard3">
+                        <a href="../插件/歌词同步显示/长安李白1.html" target="_blank"><span style="opacity:0.4;"></span></a>
+                        <img src="./images/z4.jpg" alt="">
+                        <p>为你唱一曲长安李白，叹一句杯中清酒抖绝唱。...</p>
+                    </li> 
+                    <li id="imgCard4">
+                        <a href="../插件/歌词同步显示/朝忆梨花暮忆雪1.html" target="_blank"><span style="opacity:0.4;"></span></a>
+                        <img src="./images/z5.jpg" alt="">
+                        <p>朝忆梨花暮忆雪,九阙梦华一朝尘。</p>
+                    </li> 
+                </ul>
+                <!--火狐倒影图层-->
+                <p id="rflt"></p>
+                <!--火狐倒影图层-->
+            </div>
+            <!--序列号按钮-->
+            <div class="btn_list">
+                <span class="cur"></span><span></span><span></span><span></span><span></span>        
+            </div>
+        </div>
+    </div>
+    <!--轮播图 结束 -->
+    
+
+    <div class="new_mv new_common">
+   
+        <div class="new_mv_title new_common_title index_mv_title">
+            <span id="om2">动漫MV</span>
+            <a href="?cat=6" class="more"></a>
+            <ul>
+                <li><a class="cur" href="javascript:;">MV首播</a></li>
+                <li><a href="javascript:;">首发MV</a></li>
+                <li><a href="javascript:;">热门MV</a></li>
+            </ul>
+        </div>
+        <div class="new_mv_body index_mv_body" id="video1">
+            <li><a href="../插件/弹幕模块/bmt.html" target="_blank"><img src="./images/bmt.jpg" alt=""></a></li>
+            <li><a href="../插件/弹幕模块/yg.html" target="_blank"><img src="./images/yg.jpg" alt=""></a></li>
+            <li><a href="../插件/弹幕模块/lt.html" target="_blank"><img src="./images/lt.jpg" alt=""></a></li>
+            <li><a href="../插件/弹幕模块/tfy.html" target="_blank"><img src="./images/tfy.jpg" alt=""></a></li>
+            <li><a href="../插件/弹幕模块/mhh.html" target="_blank"><img src="./images/mhh.jpg" alt=""></a></li>
+        </div>
+    </div>
+   
+
+    <div class="songs_rcmd_title">
+        <div class="rcmd_left_title rcmd_title">
+            <span id="lr800">中文动漫音乐</span>
+             <div id="div1"></div>
+            <a href="#" class="more">/更多</a>
+        </div>
+        <div class="rcmd_center_title rcmd_title">
+            <span>日文动漫音乐</span>
+            <a href="#" class="more">/更多</a>
+        </div>
+        <div class="rcmd_right_title rcmd_title">
+            <span>动漫纯音乐</span>
+            <a href="" class="more">/更多</a>
+        </div>
+    </div>
+    
+    <div class="songs_rcmd" id="songs_rcmd">
+        <div class="songs_rcmd_cont">
+            <ul class="rcmd_left rcmd_cont" id="latest">
+				<li>
+                    <a href="" class="musicName">天行九歌 &#8211;霍尊</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="musicName">不良人 &#8211; 河图</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="musicName">长安李白 &#8211; 河图</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="musicName">朝忆梨花暮忆雪 &#8211; 河图</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="musicName">月光 &#8211;胡彦斌</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="musicName">不染 &#8211; 河图</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="musicName">情动 &#8211;水晶蝶</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="musicName">谁主沉浮 &#8211;秦时明月</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="musicName">我的将军啊 &#8211;叶洛洛</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+            </ul>
+            <ul class="rcmd_center rcmd_cont" id="popular">
+				<li>
+                    <a href="javascript:;" class="musicName">departure! (TVサイズ)&#8211;小野正利</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="musicName">longing (渴望) &#8211;神田沙也加 (かんだ さやか)</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="musicName">神の光 -Μοιρα- &#8211; Sound Horizon</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="musicName">星女神の巫女 -Αρτεμισια- &#8211; Sound Horizon</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="musicName">石畳の緋い悪魔 &#8211; Sound Horizon</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="musicName">この狭い鳥籠の中で &#8211; Sound Horizon</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="musicName">Secret Track &#8211; Sound Horizon</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="musicName">a fairy tale &#8211; MUSIRISCA</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="musicName">Prayer &#8211; MUSIRISCA</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+            </ul>
+            <ul class="rcmd_right rcmd_cont" id="rank">
+				<li>
+                    <a href="javascript:;" class="musicName">Dance, cherry blossoms!&#8211; Yuri akiyama</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+				<li>
+                    <a href="javascript:;" class="musicName">佩恩降临 &#8211; 火影忍者</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+				<li>
+                    <a href="javascript:;" class="musicName">LICHT MEER &#8211; 河合夕子</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+				<li>
+                    <a href="javascript:;" class="musicName">Nocturne No. 2  &#8211; Chopin</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+				<li>
+                    <a href="javascript:;" class="musicName">夜曲 &#8211; Chopin</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+				<li>
+                    <a href="javascript:;" class="musicName">降E大调夜曲 &#8211; Chopin</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+				<li>
+                    <a href="javascript:;" class="musicName">即兴幻想曲 &#8211; Chopin</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+				<li>
+                    <a href="javascript:;" class="musicName">Nocturne op. 32 &#8211; Chopin</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+				<li>
+                    <a href="javascript:;" class="musicName">Prelude in Des &#8211; Chopin</a>
+                    <a class="shareIcon" href="../插件/分享/fenxiang.html" target="_blank"></a>
+                    <a class="playIcon" href="javascript:;"></a>
+                </li>
+			</ul>
+        </div>
+    </div>
+
+    <div class="omnibus hot_singer">
+        <div class="omnibus_cont new_common">
+            <div class="omnibus_title new_common_title" id="tj1">
+                <span>动漫吐血大推荐</span>
+                <a href="" class="more"></a>
+            </div>
+            <ul id="omnibus_list">
+                <li class="post_big">
+                    <a href="javascript:;">
+                        <img src="images/qsmy.jpg" alt="" width="305" height="290">
+                        <i></i>
+                    </a>
+                    <a href="javascript:;">国漫-秦时明月</a>
+                </li>
+                <li class="post_small">
+                    <a href="">
+                        <img src="images/hyrz.jpg" alt="" width="130" height="130">
+                        <span></span>
+                    </a>
+                    <a href="javascript:;">日漫-火影忍者</a>
+                </li>
+                <li class="post_small">
+                    <a href="">
+                        <img src='images/hzw.jpg' alt="" width="130" height="130">
+                        <span></span>
+                    </a>
+                    <a href="">日漫-海贼王</a>
+                </li>
+                <li class="post_small">
+                    <a href="">
+                        <img src="images/qyqx.jpg" alt="" width="130" height="130">
+                        <span></span>
+                    </a>
+                    <a href="">日漫-千与千寻</a>
+                </li>
+                <li class="post_small">
+                    <a href="">
+                        <img src='images/yrzx.jpg' alt="" width="130" height="130">
+                        <span></span>
+                    </a>
+                    <a href="">国漫-一人之下</a>
+                </li>
+                <li class="post_small">
+                    <a href="">
+                        <img src='images/hyxhn.jpg' alt="" width="130" height="130">
+                        <span></span>
+                    </a>
+                    <a href="">国漫-狐妖小红娘</a>
+                </li>
+                <li class="post_small">
+                    <a href="">
+                        <img src="images/ql.jpg" alt="" width="130" height="130">
+                        <span></span>
+                    </a>
+                    <a href="">国漫-灵契</a>
+                </li>
+            </ul>
+        </div>
+        <div class="hot_singer_cont new_common">
+            <div class="hot_singer_title new_common_title">
+                <span>一群可爱的人</span>
+                <a href="javascript:" class="more"></a>
+            </div>
+            <ul class="singer_list">
+                <li>
+                    <a href="javascript:" class="singerPhoto">
+                        <img src=" images/1.jpg" alt="" width="70" height="70"></a>
+                    <a href="javascript:" class="singer">柏东升</a>
+                </li>
+                <li>
+                    <a href="javascript:" class="singerPhoto">
+                        <img src="images/2.png" alt="" width="70" height="70"></a>
+                    <a href="javascript:" class="singer">胡建</a>
+                </li>
+                <li>
+                    <a href="javascript:" class="singerPhoto">
+                        <img src=" images/3.jpg" alt="" width="70" height="70"></a>
+                    <a href="javascript:" class="singer">黄雪雨</a>
+                </li>
+                <li>
+                    <a href="javascript:" class="singerPhoto">
+                        <img src=" images/4.jpg" alt="" width="70" height="70"></a>
+                    <a href="javascript:" class="singer">匡鹏</a>
+                </li>
+                <li>
+                    <a href="javascript:" class="singerPhoto">
+                        <img src='images/5.jpg' alt="" width="70" height="70"></a>
+                    <a href="javascript:" class="singer">曾钰婷</a>
+                </li>
+                <li>
+                    <a href="javascript:" class="singerPhoto">
+                        <img src=" images/6.jpg" alt="" width="70" height="70"></a>
+                    <a href="javascript:" class="singer">高苗</a>
+                </li>
+                <li>
+                    <a href="javascript:" class="singerPhoto">
+                        <img src=" images/7.jpg" alt="" width="70" height="70"></a>
+                    <a href="javascript:" class="singer">肖啟明</a>
+                </li>
+                <li>
+                    <a href="javascript:" class="singerPhoto">
+                        <img src=" images/8.jpg" alt="" width="70" height="70"></a>
+                    <a href="javascript:" class="singer">文冬成</a>
+                </li>
+                <li>
+                    <a href="javascript:" class="singerPhoto">
+                        <img src=" images/9.jpg" alt="" width="70" height="70"></a>
+                    <a href="javascript:" class="singer">刘芳玲</a>
+                </li>
+                <div style="clear:both;"></div>
+            </ul>
+        </div>
+    <div style="clear:both"></div></div>
+</section>
+
+
+
+
+
+<!-- 左侧播放器 开始-->
+<div id="jp_container_N" class="jp-video jp-video-270p" role="application" aria-label="media player">
+	<div class="jp-type-playlist">
+		<div id="jquery_jplayer_N"class="jp-jplayer"></div>
+		<div class="jp-gui">
+			<div class="jp-video-play">
+				<button class="jp-video-play-icon" role="button" tabindex="0">播放</button>
+			</div>
+			<div class="jp-interface">
+				<div class="jp-progress">
+					<div class="jp-seek-bar">
+						<div class="jp-play-bar"></div>
+					</div>
+				</div>
+				<div class="jp-current-time" role="timer" aria-label="time"></div>
+				<div class="jp-duration" role="timer" aria-label="duration"></div>
+				<div class="jp-controls-holder">
+					<div class="jp-controls">
+						<button class="jp-previous" role="button" tabindex="0">上一曲</button>
+						<button class="jp-play" role="button" tabindex="0">播放</button>
+						<button class="jp-next" role="button" tabindex="0">下一曲</button>
+						<button class="jp-stop" role="button" tabindex="0">暂停</button>
+					</div>
+					<div class="jp-volume-controls">
+						<button class="jp-mute" role="button" tabindex="0">静音</button>
+						<button class="jp-volume-max" role="button" tabindex="0">最大音量</button>
+						<div class="jp-volume-bar">
+							<div class="jp-volume-bar-value"></div>
+						</div>
+					</div>
+					<div class="jp-toggles">
+						<button class="jp-repeat" role="button" tabindex="0">重复</button>
+						<button class="jp-shuffle" role="button" tabindex="0">随机</button>
+						<!--<button class="jp-full-screen" role="button" tabindex="0">全屏</button>-->
+					</div>
+				</div>
+				<div class="jp-details">
+					<div class="jp-title" aria-label="title"></div>
+				</div>
+			</div>
+		</div>
+		<div class="jp-playlist">
+        	<div class="jp-playlist-box">
+                <ul>
+                    <!-- 该方法使用无序列表displayplaylist()播放列表 -->
+                    <li></li>
+                </ul>
+            </div>
+		</div>
+		<div class="jp-no-solution">
+			<span>升级需要</span>
+			您浏览器赞不支持播放，请更新版本
+            <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash插件</a>.
+		</div>
+	</div>
+    <!--歌曲列表滚动条-->
+    <div class="scrollBar">
+    	<div class="bar"></div>
+    </div>
+    <!--播放器展开隐藏按钮-->
+    <button type="button" class="folded_bt" title="点击收缩" id="btnfold">
+    	<span></span>
+   	</button>
+    <div id="listRemove"></div><!--移除全部歌曲按钮--> 
+    <div id="listClose"></div><!--歌曲列表展开收缩按钮-->
+</div>
+<!-- 左侧播放器 结束-->
+
+<!--底部 开始 -->
+<div class="footer" id="footer">
+	<div class="footer_cont">
+    	<div class="footer_cont_left">
+        	<p>
+                <a href="#">友情链接:</a>
+                <a href="http://so.youku.com/search_video/q_%E7%A7%A6%E6%97%B6%E6%98%8E%E6%9C%88" target="_blank">秦时明月</a>|
+                <a href="http://so.youku.com/search_video/q_%E6%96%97%E7%A0%B4%E8%8B%8D%E7%A9%B9?f=1&kb=020200000000000__%E6%96%97%E7%A0%B4%E8%8B%8D%E7%A9%B9"  target="_blank">斗破苍穹</a>|
+                <a href="http://so.youku.com/search_video/q_%E6%B5%B7%E8%B4%BC%E7%8E%8B?f=1&kb=020200000000000__%E6%B5%B7%E8%B4%BC%E7%8E%8B"  target="_blank">海贼王</a>|
+                <a href="http://so.youku.com/search_video/q_%E7%81%AB%E5%BD%B1%E5%BF%8D%E8%80%85?f=1&kb=020200000000000__%E7%81%AB%E5%BD%B1%E5%BF%8D%E8%80%85"  target="_blank">火影忍者</a>|
+                <a href="http://so.youku.com/search_video/q_%E7%81%8C%E7%AF%AE%E9%AB%98%E6%89%8B?f=1&kb=020200000000000__%E7%81%8C%E7%AF%AE%E9%AB%98%E6%89%8B"  target="_blank">灌篮高手</a>|
+                <a href="http://so.youku.com/search_video/q_%E9%93%B6%E9%AD%82?f=1&kb=020200000000000__%E9%93%B6%E9%AD%82"  target="_blank">银魂</a>
+            </p>
+            <p>
+                © 黑马前端第十小组版权所有
+            </p>
+        </div>
+        <div class="footer_cont_right">
+        	<span>喜欢分享</span>
+        	<ul>
+                <li><a target="_blank" href="https://connect.qq.com/widget/shareqq/index.html?url=file%3A%2F%2F%2FC%3A%2FUsers%2FMy%2FDesktop%2F%25E7%25AC%25AC%25E5%258D%2581%25E7%25BB%2584%25E9%25A1%25B9%25E7%259B%25AE-%25E6%259C%2580%25E7%25BB%2588%25E7%2589%2588%25E6%259C%25AC%2F%25E6%258F%2592%25E4%25BB%25B6%2F%25E5%2588%2586%25E4%25BA%25AB%2Ffenxiang.html%230-sqq-1-51866-9737f6f9e09dfaf5d3fd14d775bfee85&title=%E5%88%86%E4%BA%AB%E5%88%B0%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A&desc=&summary=&site=baidu"><span></span></a></li>
+                <li><a target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=file%3A%2F%2F%2FC%3A%2FUsers%2FMy%2FDesktop%2F%25E7%25AC%25AC%25E5%258D%2581%25E7%25BB%2584%25E9%25A1%25B9%25E7%259B%25AE-%25E6%259C%2580%25E7%25BB%2588%25E7%2589%2588%25E6%259C%25AC%2F%25E6%258F%2592%25E4%25BB%25B6%2F%25E5%2588%2586%25E4%25BA%25AB%2Ffenxiang.html%230-qzone-1-89459-d020d2d2a4e8d1a374a433f596ad1440&title=%E5%88%86%E4%BA%AB%E5%88%B0%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A&desc=&summary=&site="><span></span></a></li>
+                <li>
+					<a href="#" class="twoCode">
+						<span></span>
+						<img class="tCode" src=" images/1517791716.png" width="100" height="100" alt="二维码" />
+					</a>
+				</li>
+                <li><a target="_blank" href="http://service.weibo.com/share/share.php?url=file%3A%2F%2F%2FC%3A%2FUsers%2FMy%2FDesktop%2F%25E7%25AC%25AC%25E5%258D%2581%25E7%25BB%2584%25E9%25A1%25B9%25E7%259B%25AE-%25E6%259C%2580%25E7%25BB%2588%25E7%2589%2588%25E6%259C%25AC%2F%25E6%258F%2592%25E4%25BB%25B6%2F%25E5%2588%2586%25E4%25BA%25AB%2Ffenxiang.html%230-tsina-1-85953-397232819ff9a47a7b7e80a40613cfe1&title=%E5%88%86%E4%BA%AB%E5%88%B0%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A&appkey=1343713053&searchPic=true#_loginLayer_1534221320627"><span></span></a></li>
+                <li><a target="_blank" href="https://www.douban.com/"><span></span></a></li>
+            </ul>
+        </div>
+        <div id="toTop"></div>
+    </div>
+
+</div>
+<!--底部 结束 -->
+<script type="text/javascript" src=" js/jquery.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<!--播放器js-->
+<script type="text/javascript" src="js/player.js"></script>
+<script type="text/javascript" src="js/playlist.js"></script>
+<script type="text/javascript" src="js/player_database.js"></script>	
+<!--播放器js-->
+<!-- 底部模板调用 结束 -->
+<div class="jq22-container">
+    <div id="container"></div>
+</div>
+
+</body>
+</html>
+
+

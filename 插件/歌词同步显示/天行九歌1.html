@@ -1,0 +1,506 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <!--mp3标题-->
+    <title>Music Life-生活需要音乐</title>
+    <link rel="Shortcut Icon" href="./images/favicon.ico" />
+    <meta name="viewport" content="width=device-width , initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.4">
+    <meta name="MobileOptimized" content="240">
+    <link href="css/blue.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="js/jquery.jplayer.js"></script>
+    <script type="text/javascript" src="js/lrc.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+        }
+
+        i {
+            font-style: normal;
+        }
+
+        ul, ol, dl {
+            list-style: none;
+        }
+
+        .music_info {
+            padding-top: 50px;
+            /*text-align: center;*/
+            /*float: left;*/
+            position: absolute;
+            left:725px;
+            top: 170px;
+            color: #fff;
+        }
+
+        #music_name {
+            font-size: 32px;
+        }
+
+        .music_box {
+            margin: 200px 585px;
+            width: 422px;
+            float: left;
+            position: absolute;
+            top: 100px;
+        }
+
+        .content {
+            width: 402px;
+            height: 200px;
+            overflow: hidden;
+            padding: 10px;
+            /*background-color: rgba(0,0,0,.5);*/
+            color: #fff;
+            position: absolute;
+        }
+
+        #lrc_list {
+            margin: 10px auto;
+            /*background: rgba(0,0,0,.5);*/
+        }
+
+        #lrc_list li {
+            font: normal 14px/2.1 'microsoft yahei';
+            text-align: center;
+        }
+
+        #lrc_list li.hover {
+            color: red;
+            font-weight: bold;
+        }
+        html,body{
+            margin:0px;
+            width:100%;
+            height:100%;
+            position: relative;
+            /*overflow:hidden;*/
+            /*background:#000;*/
+        }
+
+
+        #canvas{
+            /*position:absolute;*/
+            /*width: 100%;*/
+            /*height:100%;*/
+            float: left;
+            position: fixed;
+        }
+    </style>
+    <script>
+
+        //<![CDATA[
+        $ ( document ).ready ( function () {
+            $ ( "#jquery_jplayer_1" ).jPlayer ( {
+                ready : function ( event ) {
+                    $ ( this ).jPlayer ( "setMedia", {
+                        mp3 : "audio/天行九歌.mp3" //mp3的播放地址
+                    } )
+                }, timeupdate : function ( event ) {
+                    if ( event.jPlayer.status.currentTime == 0 ) {
+                        time = ""
+                    } else {
+                        time = event.jPlayer.status.currentTime
+                    }
+                }, play : function ( event ) {
+                    //点击开始方法调用lrc。start歌词方法 返回时间time
+                    $.lrc.start ( $ ( "#lrc_content" ).val (), function () {
+                        return time
+                    } )
+                }, ended : function ( event ) {
+                    $ ( "#lrc_list" ).removeAttr ( "style" ).html ( "<li>歌曲播放完毕！</li>" )
+                }, swfPath : "/js",  		//存放jplayer.swf的决定路径
+                solution : "html, flash", //支持的页面
+                supplied : "mp3",		//支持的音频的格式
+                wmode : "window"
+            } )
+        } )
+        //]]>
+    </script>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<textarea id="lrc_content" name="textfield" cols="70" rows="10" style="display:none;"> 
+[ti:天行九歌]
+[ar:霍尊]
+[al:动画《天行九歌》主题曲]
+[by:果果1314]
+
+[00:00.00]天行九歌 - 霍尊
+[00:02.00](动画《天行九歌》主题曲)
+[00:04.00]作词：沈乐平
+[00:05.00]作曲：霍尊
+[00:06.00]制作人：田汨
+[00:07.00]编曲：田汨
+[00:08.00]二胡：陆轶文
+[00:09.00]录音师：莫家伟
+[00:10.00]混音师：莫家伟
+[00:11.00]录音棚：上海广播大厦录音棚1号棚
+[00:14.00]歌词编辑：果果
+[00:17.00]QQ:765708831
+[00:20.00]爱歌词网：www.22lrc.com
+[00:24.00]
+[00:26.73]任侠平生愿
+[00:28.94]一叶边舟莲波滟
+[00:32.53]秋水墨色染
+[00:34.76]如见美人眼波怜
+[00:38.51]故人久未见
+[00:40.75]焚诗煮酒杯未满
+[00:43.70]风长卷
+[00:45.15]轻将红袖挽
+[00:50.64]请君三尺剑
+[00:52.97]烽火城头沥肝胆
+[00:56.35]借君三十年
+[00:58.68]繁花万里好江山
+[01:02.44]翻千册案卷
+[01:04.83]谜雾遮眼心事高悬
+[01:08.53]惋叹史简笔艳
+[01:14.40]添一字绝判
+[01:19.49]千金不换
+[01:26.52]此生何用声声叹
+[01:29.71]道不尽流年
+[01:33.23]看流沙聚散
+[01:35.48]回首天涯路远
+[01:38.53]英雄何用声声叹
+[01:41.57]断碑落残垣
+[01:44.51]君不见青山
+[01:47.45]豪杰冢化尘烟
+[01:54.56]
+[02:15.28]请君三尺剑
+[02:17.39]烽火城头沥肝胆
+[02:21.18]借君三十年
+[02:23.24]繁花万里好江山
+[02:27.32]翻千册案卷
+[02:29.48]谜雾遮眼心事高悬
+[02:33.19]惋叹史简笔艳
+[02:38.44]此生何用声声叹
+[02:41.47]道不尽流年
+[02:45.14]看流沙聚散
+[02:47.47]回首天涯路远
+[02:50.52]英雄何用声声叹
+[02:53.47]断碑落残垣
+[02:56.50]君不见青山
+[02:59.55]豪杰冢化尘烟
+[03:02.75]此生何用声声叹
+[03:05.55]道不尽流年
+[03:09.30]看流沙聚散
+[03:11.51]回首天涯路远
+[03:14.52]英雄何用声声叹
+[03:17.42]断碑落残垣
+[03:20.43]君不见青山
+[03:23.35]豪杰冢化尘烟
+[03:31.94]豪杰冢皆化尘烟
+[03:43.63]
+[00:90.90]LRC歌词大全：www.90lrc.cn
+
+</textarea>
+<div class="music_info ">
+    <p id="music_name">天行九歌</p>
+    <p id="singer">歌手：<i>霍尊</i></p>
+</div>
+<div class="music_box ">
+    <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+    <div id="jp_container_1" class="jp-audio">
+        <div class="jp-type-single">
+            <div class="jp-gui jp-interface">
+                <ul class="jp-controls">
+                    <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+                    <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+                    <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+                    <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+                    <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+                    <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+                </ul>
+                <div class="jp-progress">
+                    <div class="jp-seek-bar">
+                        <div class="jp-play-bar"></div>
+                    </div>
+                </div>
+                <div class="jp-volume-bar">
+                    <div class="jp-volume-bar-value"></div>
+                </div>
+                <div class="jp-time-holder">
+                    <div class="jp-current-time"></div>
+                    <div class="jp-duration"></div>
+                    <ul class="jp-toggles">
+                        <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
+                        <li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="jp-title">
+                <ul>
+                    <li>歌词</li>
+                </ul>
+            </div>
+            <div class="jp-no-solution"><span>Update Required</span> To play the media you will need to either update
+                your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/"
+                                                                   target="_blank">Flash plugin</a>.
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <ul id="lrc_list">
+            <!--<li>点击开始播放……</li>-->
+        </ul>
+    </div>
+</div>
+
+<script>
+    function project3D(x,y,z,vars){
+
+        var p,d;
+        x-=vars.camX;
+        y-=vars.camY-8;
+        z-=vars.camZ;
+        p=Math.atan2(x,z);
+        d=Math.sqrt(x*x+z*z);
+        x=Math.sin(p-vars.yaw)*d;
+        z=Math.cos(p-vars.yaw)*d;
+        p=Math.atan2(y,z);
+        d=Math.sqrt(y*y+z*z);
+        y=Math.sin(p-vars.pitch)*d;
+        z=Math.cos(p-vars.pitch)*d;
+        var rx1=-1000;
+        var ry1=1;
+        var rx2=1000;
+        var ry2=1;
+        var rx3=0;
+        var ry3=0;
+        var rx4=x;
+        var ry4=z;
+        var uc=(ry4-ry3)*(rx2-rx1)-(rx4-rx3)*(ry2-ry1);
+        var ua=((rx4-rx3)*(ry1-ry3)-(ry4-ry3)*(rx1-rx3))/uc;
+        var ub=((rx2-rx1)*(ry1-ry3)-(ry2-ry1)*(rx1-rx3))/uc;
+        if(!z)z=0.000000001;
+        if(ua>0&&ua<1&&ub>0&&ub<1){
+            return {
+                x:vars.cx+(rx1+ua*(rx2-rx1))*vars.scale,
+                y:vars.cy+y/z*vars.scale,
+                d:(x*x+y*y+z*z)
+            };
+        }else{
+            return { d:-1 };
+        }
+    }
+
+
+    function elevation(x,y,z){
+
+        var dist = Math.sqrt(x*x+y*y+z*z);
+        if(dist && z/dist>=-1 && z/dist <=1) return Math.acos(z / dist);
+        return 0.00000001;
+    }
+
+
+    function rgb(col){
+
+        col += 0.000001;
+        var r = parseInt((0.5+Math.sin(col)*0.5)*16);
+        var g = parseInt((0.5+Math.cos(col)*0.5)*16);
+        var b = parseInt((0.5-Math.sin(col)*0.5)*16);
+        return "#"+r.toString(16)+g.toString(16)+b.toString(16);
+    }
+
+
+    function interpolateColors(RGB1,RGB2,degree){
+
+        var w2=degree;
+        var w1=1-w2;
+        return [w1*RGB1[0]+w2*RGB2[0],w1*RGB1[1]+w2*RGB2[1],w1*RGB1[2]+w2*RGB2[2]];
+    }
+
+
+    function rgbArray(col){
+
+        col += 0.000001;
+        var r = parseInt((0.5+Math.sin(col)*0.5)*256);
+        var g = parseInt((0.5+Math.cos(col)*0.5)*256);
+        var b = parseInt((0.5-Math.sin(col)*0.5)*256);
+        return [r, g, b];
+    }
+
+
+    function colorString(arr){
+
+        var r = parseInt(arr[0]);
+        var g = parseInt(arr[1]);
+        var b = parseInt(arr[2]);
+        return "#"+("0" + r.toString(16) ).slice (-2)+("0" + g.toString(16) ).slice (-2)+("0" + b.toString(16) ).slice (-2);
+    }
+
+
+    function process(vars){
+
+
+        if(vars.points.length<vars.initParticles) for(var i=0;i<5;++i) spawnParticle(vars);
+        var p,d,t;
+
+        p = Math.atan2(vars.camX, vars.camZ);
+        d = Math.sqrt(vars.camX * vars.camX + vars.camZ * vars.camZ);
+        d -= Math.sin(vars.frameNo / 80) / 25;
+        t = Math.cos(vars.frameNo / 300) / 165;
+        vars.camX = Math.sin(p + t) * d;
+        vars.camZ = Math.cos(p + t) * d;
+        vars.camY = -Math.sin(vars.frameNo / 220) * 15;
+        vars.yaw = Math.PI + p + t;
+        vars.pitch = elevation(vars.camX, vars.camZ, vars.camY) - Math.PI / 2;
+
+        var t;
+        for(var i=0;i<vars.points.length;++i){
+
+            x=vars.points[i].x;
+            y=vars.points[i].y;
+            z=vars.points[i].z;
+            d=Math.sqrt(x*x+z*z)/1.0075;
+            t=.1/(1+d*d/5);
+            p=Math.atan2(x,z)+t;
+            vars.points[i].x=Math.sin(p)*d;
+            vars.points[i].z=Math.cos(p)*d;
+            vars.points[i].y+=vars.points[i].vy*t*((Math.sqrt(vars.distributionRadius)-d)*2);
+            if(vars.points[i].y>vars.vortexHeight/2 || d<.25){
+                vars.points.splice(i,1);
+                spawnParticle(vars);
+            }
+        }
+    }
+
+    function drawFloor(vars){
+
+        var x,y,z,d,point,a;
+        for (var i = -25; i <= 25; i += 1) {
+            for (var j = -25; j <= 25; j += 1) {
+                x = i*2;
+                z = j*2;
+                y = vars.floor;
+                d = Math.sqrt(x * x + z * z);
+                point = project3D(x, y-d*d/85, z, vars);
+                if (point.d != -1) {
+                    size = 1 + 15000 / (1 + point.d);
+                    a = 0.15 - Math.pow(d / 50, 4) * 0.15;
+                    if (a > 0) {
+                        vars.ctx.fillStyle = colorString(interpolateColors(rgbArray(d/26-vars.frameNo/40),[0,128,32],.5+Math.sin(d/6-vars.frameNo/8)/2));
+                        vars.ctx.globalAlpha = a;
+                        vars.ctx.fillRect(point.x-size/2,point.y-size/2,size,size);
+                    }
+                }
+            }
+        }
+        vars.ctx.fillStyle = "#82f";
+        for (var i = -25; i <= 25; i += 1) {
+            for (var j = -25; j <= 25; j += 1) {
+                x = i*2;
+                z = j*2;
+                y = -vars.floor;
+                d = Math.sqrt(x * x + z * z);
+                point = project3D(x, y+d*d/85, z, vars);
+                if (point.d != -1) {
+                    size = 1 + 15000 / (1 + point.d);
+                    a = 0.15 - Math.pow(d / 50, 4) * 0.15;
+                    if (a > 0) {
+                        vars.ctx.fillStyle = colorString(interpolateColors(rgbArray(-d/26-vars.frameNo/40),[32,0,128],.5+Math.sin(-d/6-vars.frameNo/8)/2));
+                        vars.ctx.globalAlpha = a;
+                        vars.ctx.fillRect(point.x-size/2,point.y-size/2,size,size);
+                    }
+                }
+            }
+        }
+    }
+
+    function sortFunction(a,b){
+        return b.dist-a.dist;
+    }
+
+    function draw(vars){
+
+        vars.ctx.globalAlpha=.15;
+        vars.ctx.fillStyle="#000";
+        vars.ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        drawFloor(vars);
+
+        var point,x,y,z,a;
+        for(var i=0;i<vars.points.length;++i){
+            x=vars.points[i].x;
+            y=vars.points[i].y;
+            z=vars.points[i].z;
+            point=project3D(x,y,z,vars);
+            if(point.d != -1){
+                vars.points[i].dist=point.d;
+                size=1+vars.points[i].radius/(1+point.d);
+                d=Math.abs(vars.points[i].y);
+                a = .8 - Math.pow(d / (vars.vortexHeight/2), 1000) * .8;
+                vars.ctx.globalAlpha=a>=0&&a<=1?a:0;
+                vars.ctx.fillStyle=rgb(vars.points[i].color);
+                if(point.x>-1&&point.x<vars.canvas.width&&point.y>-1&&point.y<vars.canvas.height)vars.ctx.fillRect(point.x-size/2,point.y-size/2,size,size);
+            }
+        }
+        vars.points.sort(sortFunction);
+    }
+
+
+    function spawnParticle(vars){
+
+        var p,ls;
+        pt={};
+        p=Math.PI*2*Math.random();
+        ls=Math.sqrt(Math.random()*vars.distributionRadius);
+        pt.x=Math.sin(p)*ls;
+        pt.y=-vars.vortexHeight/2;
+        pt.vy=vars.initV/20+Math.random()*vars.initV;
+        pt.z=Math.cos(p)*ls;
+        pt.radius=200+800*Math.random();
+        pt.color=pt.radius/1000+vars.frameNo/250;
+        vars.points.push(pt);
+    }
+
+    function frame(vars) {
+
+        if(vars === undefined){
+            var vars={};
+            vars.canvas = document.querySelector("canvas");
+            vars.ctx = vars.canvas.getContext("2d");
+            vars.canvas.width = document.body.clientWidth;
+            vars.canvas.height = document.body.clientHeight;
+            window.addEventListener("resize", function(){
+                vars.canvas.width = document.body.clientWidth;
+                vars.canvas.height = document.body.clientHeight;
+                vars.cx=vars.canvas.width/2;
+                vars.cy=vars.canvas.height/2;
+            }, true);
+            vars.frameNo=0;
+
+            vars.camX = 0;
+            vars.camY = 0;
+            vars.camZ = -14;
+            vars.pitch = elevation(vars.camX, vars.camZ, vars.camY) - Math.PI / 2;
+            vars.yaw = 0;
+            vars.cx=vars.canvas.width/2;
+            vars.cy=vars.canvas.height/2;
+            vars.bounding=10;
+            vars.scale=500;
+            vars.floor=26.5;
+
+            vars.points=[];
+            vars.initParticles=700;
+            vars.initV=.01;
+            vars.distributionRadius=800;
+            vars.vortexHeight=25;
+        }
+
+        vars.frameNo++;
+        requestAnimationFrame(function() {
+            frame(vars);
+        });
+
+        process(vars);
+        draw(vars);
+    }
+    frame();
+</script>
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <!--mp3标题-->
+    <title>Music Life-生活需要音乐</title>
+    <link rel="Shortcut Icon" href="./images/favicon.ico" />
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="viewport" content="width=device-width , initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.4">
+    <meta name="MobileOptimized" content="240">
+    <link href="css/blue.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="js/jquery.jplayer.js"></script>
+    <script type="text/javascript" src="js/lrc.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+        }
+
+        i {
+            font-style: normal;
+        }
+
+        ul, ol, dl {
+            list-style: none;
+        }
+
+        .music_info {
+            padding-top: 50px;
+            /*text-align: center;*/
+            /*float: left;*/
+            position: absolute;
+            left:725px;
+            top: 170px;
+            color: #fff;
+        }
+
+        #music_name {
+            font-size: 32px;
+        }
+
+        .music_box {
+            margin: 200px 585px;
+            width: 422px;
+            float: left;
+            position: absolute;
+            top: 100px;
+        }
+
+        .content {
+            width: 402px;
+            height: 200px;
+            overflow: hidden;
+            padding: 10px;
+            /*background-color: rgba(0,0,0,.5);*/
+            color: #fff;
+            position: absolute;
+        }
+
+        #lrc_list {
+            margin: 10px auto;
+            /*background: rgba(0,0,0,.5);*/
+        }
+
+        #lrc_list li {
+            font: normal 14px/2.1 'microsoft yahei';
+            text-align: center;
+        }
+
+        #lrc_list li.hover {
+            color: red;
+            font-weight: bold;
+        }
+        html,body{
+            margin:0px;
+            width:100%;
+            height:100%;
+            position: relative;
+            /*overflow:hidden;*/
+            /*background:#000;*/
+        }
+
+
+        #canvas{
+            /*position:absolute;*/
+            /*width: 100%;*/
+            /*height:100%;*/
+            float: left;
+            position: fixed;
+        }
+    </style>
+    <script>
+
+        //<![CDATA[
+        $ ( document ).ready ( function () {
+            $ ( "#jquery_jplayer_1" ).jPlayer ( {
+                ready : function ( event ) {
+                    $ ( this ).jPlayer ( "setMedia", {
+                        mp3 : "audio/谁主沉浮.mp3" //mp3的播放地址
+                    } )
+                }, timeupdate : function ( event ) {
+                    if ( event.jPlayer.status.currentTime == 0 ) {
+                        time = ""
+                    } else {
+                        time = event.jPlayer.status.currentTime
+                    }
+                }, play : function ( event ) {
+                    //点击开始方法调用lrc。start歌词方法 返回时间time
+                    $.lrc.start ( $ ( "#lrc_content" ).val (), function () {
+                        return time
+                    } )
+                }, ended : function ( event ) {
+                    $ ( "#lrc_list" ).removeAttr ( "style" ).html ( "<li>歌曲播放完毕！</li>" )
+                }, swfPath : "/js",  		//存放jplayer.swf的决定路径
+                solution : "html, flash", //支持的页面
+                supplied : "mp3",		//支持的音频的格式
+                wmode : "window"
+            } )
+        } )
+        //]]>
+    </script>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<textarea id="lrc_content" name="textfield" cols="70" rows="10" style="display:none;"> 
+[00:00.30]《谁主沉浮—千秋诉》
+[00:01.60]
+[00:01.95]投下一记孤注 定四海沉浮
+[00:05.56]此心却寄予何处
+[00:08.60]这江山谁主 才不算一场辜负
+[00:14.60]
+[00:15.60]原曲：《坠ちない空》-ENA
+[00:17.20]填词：Vagary
+[00:18.99]演唱：梦璟SAYA
+[00:20.99]后期：Tureleon
+[00:22.20]
+[00:23.20]冥冥之中轮回转 昨世今生换半声叹
+[00:29.21]相逢 相欠 去而复返 仇怨作因缘
+[00:35.21]
+[00:36.86]成败似云烟聚复散 天意如狂澜争拍岸
+[00:42.44]云潼关 乱军前 掀惊涛一片
+[00:45.79]撤身难 恨如绵 妄厮缠
+[00:49.79]
+[00:50.12]忆往昔悔太迟 谁情深如诗
+[00:54.18]谁情薄如纸 谁作证这长天烈日
+    [00:59.20]我归去来辞 谁见夤夜绘相思
+[01:03.62]是天谴是天赐 浮生如游丝
+[01:07.46]为你夺乾坤社稷
+[01:10.64]若前缘如洗 生有何欢死何惧
+[01:17.37]深宵残梦里 温存桃花碎如雨
+[01:24.55]
+[01:38.03]封疆万里心如铁 铸一寸河山一寸血
+[01:44.95]杀伐 难歇 情真情切 寒香随彩蝶
+[01:51.22]
+[01:52.47]若刹那因缘无生灭 却爱恨同根谁能解
+[01:58.14]两相知 豪情烈 心花空开谢
+[02:01.31]杯酒尽 英雄血 永诀别
+[02:05.19]
+[02:05.83]便有情惊天地 结一世痴迷
+[02:09.43]再不问悲喜 只问你心中千万缕
+[02:14.70]断弦如何续 续完你我这结局
+[02:19.21]风云改烟月寂 变幻帝王旗
+[02:22.99]到头犹记曾相惜
+[02:26.24]余生付一句 生若尽欢死无惧
+[02:33.19]
+[02:33.87]问世间情为何物 无人不臣服
+[02:40.03]为你守护 百年家国荣枯
+[02:47.70]纵然繁华成朝露 明珠化尘土
+[02:52.76]至万劫不复 或粉身碎骨
+[02:55.98]惟愿你知我 葬何处
+[03:01.30]
+[03:01.94]忆往昔悔太迟 谁情深如诗
+[03:05.76]谁情薄如纸 谁作证这长天烈日
+[03:10.80]我归去来辞 谁见夤夜绘相思
+[03:16.10]是天谴是天赐 浮生如游丝
+[03:20.06]为你夺乾坤社稷
+[03:23.30]若前缘如洗 生有何欢死何惧
+[03:29.57]
+[03:29.88]便有情惊天地 结一世痴迷
+[03:33.86]再不问悲喜 只问你心中千万缕
+[03:38.46]断弦如何续 续完你我这结局
+[03:42.77]风云改烟月寂 变幻帝王旗
+[03:46.94]到头犹记曾相惜
+[03:50.22]余生付一句 生若尽欢死无惧
+[03:56.04]
+[03:56.74]若情到荼蘼 爱恨参商月天西
+[04:03.48]愿情动天地 执手千秋忘别离
+</textarea>
+<div class="music_info ">
+    <p id="music_name">谁主沉浮</p>
+    <p id="singer">歌手：<i>秦时明月</i></p>
+</div>
+<div class="music_box ">
+    <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+    <div id="jp_container_1" class="jp-audio">
+        <div class="jp-type-single">
+            <div class="jp-gui jp-interface">
+                <ul class="jp-controls">
+                    <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+                    <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+                    <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+                    <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+                    <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+                    <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+                </ul>
+                <div class="jp-progress">
+                    <div class="jp-seek-bar">
+                        <div class="jp-play-bar"></div>
+                    </div>
+                </div>
+                <div class="jp-volume-bar">
+                    <div class="jp-volume-bar-value"></div>
+                </div>
+                <div class="jp-time-holder">
+                    <div class="jp-current-time"></div>
+                    <div class="jp-duration"></div>
+                    <ul class="jp-toggles">
+                        <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
+                        <li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="jp-title">
+                <ul>
+                    <li>歌词</li>
+                </ul>
+            </div>
+            <div class="jp-no-solution"><span>Update Required</span> To play the media you will need to either update
+                your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/"
+                                                                   target="_blank">Flash plugin</a>.
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <ul id="lrc_list">
+            <!--<li>点击开始播放……</li>-->
+        </ul>
+    </div>
+</div>
+
+<script>
+    function project3D(x,y,z,vars){
+
+        var p,d;
+        x-=vars.camX;
+        y-=vars.camY-8;
+        z-=vars.camZ;
+        p=Math.atan2(x,z);
+        d=Math.sqrt(x*x+z*z);
+        x=Math.sin(p-vars.yaw)*d;
+        z=Math.cos(p-vars.yaw)*d;
+        p=Math.atan2(y,z);
+        d=Math.sqrt(y*y+z*z);
+        y=Math.sin(p-vars.pitch)*d;
+        z=Math.cos(p-vars.pitch)*d;
+        var rx1=-1000;
+        var ry1=1;
+        var rx2=1000;
+        var ry2=1;
+        var rx3=0;
+        var ry3=0;
+        var rx4=x;
+        var ry4=z;
+        var uc=(ry4-ry3)*(rx2-rx1)-(rx4-rx3)*(ry2-ry1);
+        var ua=((rx4-rx3)*(ry1-ry3)-(ry4-ry3)*(rx1-rx3))/uc;
+        var ub=((rx2-rx1)*(ry1-ry3)-(ry2-ry1)*(rx1-rx3))/uc;
+        if(!z)z=0.000000001;
+        if(ua>0&&ua<1&&ub>0&&ub<1){
+            return {
+                x:vars.cx+(rx1+ua*(rx2-rx1))*vars.scale,
+                y:vars.cy+y/z*vars.scale,
+                d:(x*x+y*y+z*z)
+            };
+        }else{
+            return { d:-1 };
+        }
+    }
+
+
+    function elevation(x,y,z){
+
+        var dist = Math.sqrt(x*x+y*y+z*z);
+        if(dist && z/dist>=-1 && z/dist <=1) return Math.acos(z / dist);
+        return 0.00000001;
+    }
+
+
+    function rgb(col){
+
+        col += 0.000001;
+        var r = parseInt((0.5+Math.sin(col)*0.5)*16);
+        var g = parseInt((0.5+Math.cos(col)*0.5)*16);
+        var b = parseInt((0.5-Math.sin(col)*0.5)*16);
+        return "#"+r.toString(16)+g.toString(16)+b.toString(16);
+    }
+
+
+    function interpolateColors(RGB1,RGB2,degree){
+
+        var w2=degree;
+        var w1=1-w2;
+        return [w1*RGB1[0]+w2*RGB2[0],w1*RGB1[1]+w2*RGB2[1],w1*RGB1[2]+w2*RGB2[2]];
+    }
+
+
+    function rgbArray(col){
+
+        col += 0.000001;
+        var r = parseInt((0.5+Math.sin(col)*0.5)*256);
+        var g = parseInt((0.5+Math.cos(col)*0.5)*256);
+        var b = parseInt((0.5-Math.sin(col)*0.5)*256);
+        return [r, g, b];
+    }
+
+
+    function colorString(arr){
+
+        var r = parseInt(arr[0]);
+        var g = parseInt(arr[1]);
+        var b = parseInt(arr[2]);
+        return "#"+("0" + r.toString(16) ).slice (-2)+("0" + g.toString(16) ).slice (-2)+("0" + b.toString(16) ).slice (-2);
+    }
+
+
+    function process(vars){
+
+
+        if(vars.points.length<vars.initParticles) for(var i=0;i<5;++i) spawnParticle(vars);
+        var p,d,t;
+
+        p = Math.atan2(vars.camX, vars.camZ);
+        d = Math.sqrt(vars.camX * vars.camX + vars.camZ * vars.camZ);
+        d -= Math.sin(vars.frameNo / 80) / 25;
+        t = Math.cos(vars.frameNo / 300) / 165;
+        vars.camX = Math.sin(p + t) * d;
+        vars.camZ = Math.cos(p + t) * d;
+        vars.camY = -Math.sin(vars.frameNo / 220) * 15;
+        vars.yaw = Math.PI + p + t;
+        vars.pitch = elevation(vars.camX, vars.camZ, vars.camY) - Math.PI / 2;
+
+        var t;
+        for(var i=0;i<vars.points.length;++i){
+
+            x=vars.points[i].x;
+            y=vars.points[i].y;
+            z=vars.points[i].z;
+            d=Math.sqrt(x*x+z*z)/1.0075;
+            t=.1/(1+d*d/5);
+            p=Math.atan2(x,z)+t;
+            vars.points[i].x=Math.sin(p)*d;
+            vars.points[i].z=Math.cos(p)*d;
+            vars.points[i].y+=vars.points[i].vy*t*((Math.sqrt(vars.distributionRadius)-d)*2);
+            if(vars.points[i].y>vars.vortexHeight/2 || d<.25){
+                vars.points.splice(i,1);
+                spawnParticle(vars);
+            }
+        }
+    }
+
+    function drawFloor(vars){
+
+        var x,y,z,d,point,a;
+        for (var i = -25; i <= 25; i += 1) {
+            for (var j = -25; j <= 25; j += 1) {
+                x = i*2;
+                z = j*2;
+                y = vars.floor;
+                d = Math.sqrt(x * x + z * z);
+                point = project3D(x, y-d*d/85, z, vars);
+                if (point.d != -1) {
+                    size = 1 + 15000 / (1 + point.d);
+                    a = 0.15 - Math.pow(d / 50, 4) * 0.15;
+                    if (a > 0) {
+                        vars.ctx.fillStyle = colorString(interpolateColors(rgbArray(d/26-vars.frameNo/40),[0,128,32],.5+Math.sin(d/6-vars.frameNo/8)/2));
+                        vars.ctx.globalAlpha = a;
+                        vars.ctx.fillRect(point.x-size/2,point.y-size/2,size,size);
+                    }
+                }
+            }
+        }
+        vars.ctx.fillStyle = "#82f";
+        for (var i = -25; i <= 25; i += 1) {
+            for (var j = -25; j <= 25; j += 1) {
+                x = i*2;
+                z = j*2;
+                y = -vars.floor;
+                d = Math.sqrt(x * x + z * z);
+                point = project3D(x, y+d*d/85, z, vars);
+                if (point.d != -1) {
+                    size = 1 + 15000 / (1 + point.d);
+                    a = 0.15 - Math.pow(d / 50, 4) * 0.15;
+                    if (a > 0) {
+                        vars.ctx.fillStyle = colorString(interpolateColors(rgbArray(-d/26-vars.frameNo/40),[32,0,128],.5+Math.sin(-d/6-vars.frameNo/8)/2));
+                        vars.ctx.globalAlpha = a;
+                        vars.ctx.fillRect(point.x-size/2,point.y-size/2,size,size);
+                    }
+                }
+            }
+        }
+    }
+
+    function sortFunction(a,b){
+        return b.dist-a.dist;
+    }
+
+    function draw(vars){
+
+        vars.ctx.globalAlpha=.15;
+        vars.ctx.fillStyle="#000";
+        vars.ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        drawFloor(vars);
+
+        var point,x,y,z,a;
+        for(var i=0;i<vars.points.length;++i){
+            x=vars.points[i].x;
+            y=vars.points[i].y;
+            z=vars.points[i].z;
+            point=project3D(x,y,z,vars);
+            if(point.d != -1){
+                vars.points[i].dist=point.d;
+                size=1+vars.points[i].radius/(1+point.d);
+                d=Math.abs(vars.points[i].y);
+                a = .8 - Math.pow(d / (vars.vortexHeight/2), 1000) * .8;
+                vars.ctx.globalAlpha=a>=0&&a<=1?a:0;
+                vars.ctx.fillStyle=rgb(vars.points[i].color);
+                if(point.x>-1&&point.x<vars.canvas.width&&point.y>-1&&point.y<vars.canvas.height)vars.ctx.fillRect(point.x-size/2,point.y-size/2,size,size);
+            }
+        }
+        vars.points.sort(sortFunction);
+    }
+
+
+    function spawnParticle(vars){
+
+        var p,ls;
+        pt={};
+        p=Math.PI*2*Math.random();
+        ls=Math.sqrt(Math.random()*vars.distributionRadius);
+        pt.x=Math.sin(p)*ls;
+        pt.y=-vars.vortexHeight/2;
+        pt.vy=vars.initV/20+Math.random()*vars.initV;
+        pt.z=Math.cos(p)*ls;
+        pt.radius=200+800*Math.random();
+        pt.color=pt.radius/1000+vars.frameNo/250;
+        vars.points.push(pt);
+    }
+
+    function frame(vars) {
+
+        if(vars === undefined){
+            var vars={};
+            vars.canvas = document.querySelector("canvas");
+            vars.ctx = vars.canvas.getContext("2d");
+            vars.canvas.width = document.body.clientWidth;
+            vars.canvas.height = document.body.clientHeight;
+            window.addEventListener("resize", function(){
+                vars.canvas.width = document.body.clientWidth;
+                vars.canvas.height = document.body.clientHeight;
+                vars.cx=vars.canvas.width/2;
+                vars.cy=vars.canvas.height/2;
+            }, true);
+            vars.frameNo=0;
+
+            vars.camX = 0;
+            vars.camY = 0;
+            vars.camZ = -14;
+            vars.pitch = elevation(vars.camX, vars.camZ, vars.camY) - Math.PI / 2;
+            vars.yaw = 0;
+            vars.cx=vars.canvas.width/2;
+            vars.cy=vars.canvas.height/2;
+            vars.bounding=10;
+            vars.scale=500;
+            vars.floor=26.5;
+
+            vars.points=[];
+            vars.initParticles=700;
+            vars.initV=.01;
+            vars.distributionRadius=800;
+            vars.vortexHeight=25;
+        }
+
+        vars.frameNo++;
+        requestAnimationFrame(function() {
+            frame(vars);
+        });
+
+        process(vars);
+        draw(vars);
+    }
+    frame();
+</script>
+</body>
+</html>
